@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Generator</title>
+	<script type="text/javascript" src="FormGenerator.js"></script>
+</head>
+<body>
+	<div id="form-maker"></div>
+	<button onclick="makeForm()">Make Form</button>
+	<script type="text/javascript">
+		var formGenerator = new FormGenerator(document.getElementById("form-maker"));
+		formGenerator.showFormGenerator('[{"type":"text","name":"name","class":"","label":"Name","values":""},{"type":"select","name":"sex","class":"","label":"Gender","values":[{"value":"","label":"Please choose one of the following"},{"value":"m","label":"Male"},{"value":"f","label":"Female"}]},{"type":"date","name":"dob","class":"","label":"Date of Birth","values":""},{"type":"multiselect","name":"skills","class":"multiselect","label":"Skills","values":[{"value":"c","label":"C"},{"value":"cpp","label":"C++"},{"value":"java","label":"Java"},{"value":"php","label":"PHP"},{"value":"python","label":"Python"},{"value":"js","label":"Javascript"},{"value":"html","label":"HTML"},{"value":"css","label":"CSS"},{"value":"mysql","label":"MySQL"},{"value":"perl","label":"Perl"}]}]');
+
+		function makeForm(){
+			var json = JSON.stringify(formGenerator.JSONize());
+			window.location.href = "form.html?form="+encodeURIComponent(json);
+		}
+	</script>
+</body>
+</html>
